@@ -12,7 +12,6 @@ const AddTodo = () => {
     try {
       const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/todos/create`, formData,{
             headers: { Authorization: `Bearer ${token}` }, 
-            withCredentials: true,
       });
       console.log("Response:", response.data);
       navigate('/todos')
