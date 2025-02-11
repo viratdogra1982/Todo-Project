@@ -22,7 +22,6 @@ const TodosPage = () => {
     try {
       const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/todos/all`, {
         headers: { Authorization: `Bearer ${token}` }, 
-        withCredentials: true,
       });
 
       setTodos(response.data);
@@ -40,7 +39,6 @@ const TodosPage = () => {
         { completed: !completed },
         {
           headers: { Authorization: `Bearer ${token}` },
-          withCredentials: true,
         }
       );
 
@@ -56,7 +54,6 @@ const TodosPage = () => {
     try {
       await axios.delete(`${import.meta.env.VITE_BASE_URL}/todos/delete/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
-        withCredentials: true,
       });
 
       setTodos(todos.filter((todo) => todo._id !== id));
